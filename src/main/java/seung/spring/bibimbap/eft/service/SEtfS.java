@@ -1,12 +1,12 @@
 package seung.spring.bibimbap.eft.service;
 
 import seung.java.kimchi.util.SLinkedHashMap;
-import seung.spring.boot.conf.support.SRequestMapSwagger;
+import seung.java.kimchi.util.SRequestMap;
 
 public interface SEtfS {
 
-	SLinkedHashMap etfSL(SRequestMapSwagger sRequestMap);
+	SLinkedHashMap etfSL(SRequestMap sRequestMap);
 	
-	SLinkedHashMap etfSR(SRequestMapSwagger sRequestMap);
+	SLinkedHashMap etfSR(SRequestMap sRequestMap);
 	
 }

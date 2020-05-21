@@ -60,20 +60,20 @@ public class SSecurity extends WebSecurityConfigurerAdapter {
 		
 		if(systemIps.length() > 0) {
 			httpSecurity.authorizeRequests()
-//				.antMatchers("/webjars/**").permitAll()
 				.antMatchers("/swagger-ui.html").permitAll()
 				.antMatchers("/swagger-resources/**").permitAll()
 				.antMatchers("/v2/**").permitAll()
 				.antMatchers("/reflect").permitAll()
+				.antMatchers("/rest/**").permitAll()
 				.anyRequest().authenticated()
 				;
 		} else {
 			httpSecurity.authorizeRequests()
-//				.antMatchers("/webjars/**").permitAll()
 				.antMatchers("/swagger-ui.html").permitAll()
 				.antMatchers("/swagger-resources/**").permitAll()
 				.antMatchers("/v2/**").permitAll()
 				.antMatchers("/reflect").permitAll()
+				.antMatchers("/rest/**").permitAll()
 				.anyRequest().authenticated()
 				;
 		}
