@@ -86,8 +86,8 @@ public class SRequestMapSwagger {
 		data.put(key, value);
 		return data;
 	}
-	public SLinkedHashMap addData(SLinkedHashMap sMap) {
-		data.putAll(sMap);
+	public SLinkedHashMap addData(SLinkedHashMap sLinkedHashMap) {
+		data.putAll(sLinkedHashMap);
 		return data;
 	}
 	public SLinkedHashMap addData(String jsonString) throws JsonParseException, JsonMappingException, IOException {
