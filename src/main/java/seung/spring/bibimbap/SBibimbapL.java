@@ -13,9 +13,13 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import lombok.extern.slf4j.Slf4j;
 import seung.java.kimchi.SStringU;
 
+/**
+ * life cycle
+ * @author stoas
+ */
 @Slf4j
 @Component
-public class SCallback {
+public class SBibimbapL {
 
 	@Resource(name="configProperties")
 	private Properties configProperties;

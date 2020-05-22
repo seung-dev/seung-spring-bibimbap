@@ -19,11 +19,10 @@ import lombok.extern.slf4j.Slf4j;
 
 @PropertySources({
 	@PropertySource(value="classpath:s-application.properties")
-//	, @PropertySource(value="classpath:ift-bridge.properties")
 })
 @ComponentScan({"seung"})
-@Configuration
 @Slf4j
+@Configuration
 public class SConfiguraion {
 
 	@Autowired

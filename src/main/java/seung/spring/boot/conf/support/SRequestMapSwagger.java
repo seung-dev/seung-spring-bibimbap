@@ -25,14 +25,14 @@ public class SRequestMapSwagger {
 	@ApiModelProperty(
 			dataType = "SLinkedHashMap"
 			, value = "네트워크 정보"
-			, example = "{\"appHost\":\"127.0.0.1:11131\",\"hostType\":\"127\",\"hostName\":\"DESKTOP-5QCRF8K\",\"remoteAddr\":\"127.0.0.1\",\"requestURI\":\"/rest/reflect\",\"refererURI\":\"\"}"
+			, example = "{\"app_host\":\"127.0.0.1:11131\",\"host_type\":\"127\",\"host_name\":\"DESKTOP-5QCRF8K\",\"remote_addr\":\"127.0.0.1\",\"request_uri\":\"/rest/reflect\",\"referer_uri\":\"\"}"
 			, allowEmptyValue = false
 			)
 	private SLinkedHashMap network = new SLinkedHashMap();
 	@ApiModelProperty(
 			dataType = "SLinkedHashMap"
 			, value = "헤더 정보"
-			, example = "{\"appHost\":\"127.0.0.1:11131\",\"hostType\":\"127\",\"hostName\":\"DESKTOP-5QCRF8K\",\"remoteAddr\":\"127.0.0.1\",\"requestURI\":\"/rest/reflect\",\"refererURI\":\"\"}"
+			, example = "{\"app_host\":\"127.0.0.1:11131\",\"host_type\":\"127\",\"host_name\":\"DESKTOP-5QCRF8K\",\"remote_addr\":\"127.0.0.1\",\"request_uri\":\"/rest/reflect\",\"referer_uri\":\"\"}"
 			, allowEmptyValue = false
 			)
 	private SLinkedHashMap header = new SLinkedHashMap();

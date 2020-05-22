@@ -28,11 +28,6 @@ import springfox.documentation.spi.DocumentationType;
 import springfox.documentation.spring.web.plugins.Docket;
 import springfox.documentation.swagger2.annotations.EnableSwagger2;
 
-@EnableSwagger2
-@PropertySources({
-	@PropertySource(value="classpath:s-application.properties")
-//	, @PropertySource(value="classpath:ift-bridge.properties")
-})
 @Slf4j
 @Configuration
 public class SConfigurationWeb extends WebMvcConfigurationSupport {
@@ -74,42 +69,5 @@ public class SConfigurationWeb extends WebMvcConfigurationSupport {
 		log.info("addNotWrappedModelKeys={}", "no-wrap");
 		return sMappingJackson2JsonView;
 	}// end of addSMappingJackson2JsonView
-	
-	@Bean
-	public Docket api() {
-		
-		String title       = configProperties.getProperty("config.swagger.title"      , configProperties.getProperty("spring.application.name", "title"));
-		String description = configProperties.getProperty("config.swagger.description", "description");
-		String version     = configProperties.getProperty("config.swagger.version"    , getClass().getPackage().getImplementationVersion());
-		String name        = configProperties.getProperty("config.swagger.name"       , "name");
-		String url         = configProperties.getProperty("config.swagger.url"        , "");
-		String email       = configProperties.getProperty("config.swagger.email"      , "email");
-		log.info("swagger.title={}"      , title);
-		log.info("swagger.description={}", description);
-		log.info("swagger.version={}"    , version);
-		log.info("swagger.name={}"       , name);
-		log.info("swagger.url={}"        , url);
-		log.info("swagger.email={}"      , email);
-		return new Docket(DocumentationType.SWAGGER_2)
-				.apiInfo(new ApiInfoBuilder()
-						.title(title)
-						.description(description)
-						.version(version)
-//						.termsOfServiceUrl("alert('none');")
-						.contact(new Contact(name, url, email))
-						.license("Apache 2.0")
-						.licenseUrl("http://www.apache.org/licenses/LICENSE-2.0.html")
-						.build()
-						)
-//				.host("https://x.x.x.x")
-				.select()
-				.apis(RequestHandlerSelectors.any())
-				.paths(Predicates.or(PathSelectors.ant("/reflect"), PathSelectors.ant("/rest/**")))
-				.build()
-				.useDefaultResponseMessages(false)
-				;
-		
-		
-	}
 	
 }

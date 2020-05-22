@@ -41,27 +41,26 @@ public class SHandlerMethodArgumentResolver implements HandlerMethodArgumentReso
 		HttpServletRequest httpServletRequest = (HttpServletRequest) nativeWebRequest.getNativeRequest();
 		
 		// network
-		key = "appHost";
+		key = "app_host";
 		sRequestMap.putNetwork(key, httpServletRequest.getHeader("host"));
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "hostType";
+		key = "host_type";
 		sRequestMap.putNetwork(key, httpServletRequest.getHeader("host").split("\\.")[0]);
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "hostName";
+		key = "host_name";
 		sRequestMap.putNetwork(key, InetAddress.getLocalHost().getHostName());
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "remoteAddr";
+		key = "remote_addr";
 		sRequestMap.putNetwork(key, (httpServletRequest.getHeader("X-FORWARDED-FOR") == null ? httpServletRequest.getRemoteAddr() : httpServletRequest.getHeader("X-FORWARDED-FOR")));
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "requestURI";
+		key = "request_uri";
 		sRequestMap.putNetwork(key, httpServletRequest.getRequestURI().replace("/WEB-INF/views", "").replace(".jsp", "").replace(httpServletRequest.getContextPath(), ""));
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "refererURI";
+		key = "referer_uri";
 		sRequestMap.putNetwork(key, httpServletRequest.getHeader("referer") == null ? "" : new URI(httpServletRequest.getHeader("referer")).getPath());
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
 		
 		// parameters
-		log.error(methodParameter.getParameterType().getName());
 		if(methodParameter.getParameterType().equals(SRequestMap.class)) {
 			
 			// header
@@ -83,12 +82,10 @@ public class SHandlerMethodArgumentResolver implements HandlerMethodArgumentReso
 				
 				key = (String) enumerations.nextElement();
 				
-				if(!key.startsWith("_ss")) {
-					vals = httpServletRequest.getParameterValues(key);
-					if(vals != null) {
-						sRequestMap.putData(key, vals.length > 1 ? vals : vals[0]);
-						log.debug(String.format("({}) data.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getData().getString(key)));
-					}
+				vals = httpServletRequest.getParameterValues(key);
+				if(vals != null) {
+					sRequestMap.putData(key, vals.length > 1 ? vals : vals[0]);
+					log.debug(String.format("({}) data.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getData().getString(key)));
 				}
 				
 			}// end of data
