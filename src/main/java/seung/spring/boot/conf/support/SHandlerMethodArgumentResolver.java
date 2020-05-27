@@ -41,23 +41,27 @@ public class SHandlerMethodArgumentResolver implements HandlerMethodArgumentReso
 		HttpServletRequest httpServletRequest = (HttpServletRequest) nativeWebRequest.getNativeRequest();
 		
 		// network
-		key = "app_host";
-		sRequestMap.putNetwork(key, httpServletRequest.getHeader("host"));
-		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "host_type";
-		sRequestMap.putNetwork(key, httpServletRequest.getHeader("host").split("\\.")[0]);
-		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "host_name";
-		sRequestMap.putNetwork(key, InetAddress.getLocalHost().getHostName());
-		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
 		key = "remote_addr";
-		sRequestMap.putNetwork(key, (httpServletRequest.getHeader("X-FORWARDED-FOR") == null ? httpServletRequest.getRemoteAddr() : httpServletRequest.getHeader("X-FORWARDED-FOR")));
+		String remote_addr = httpServletRequest.getHeader("X-Forwarded-For");
+		if (remote_addr ==null || remote_addr.length() == 0 || "unknown".equalsIgnoreCase(remote_addr)) {
+			remote_addr = httpServletRequest.getHeader("Proxy-Client-IP");
+		}
+		if (remote_addr ==null || remote_addr.length() == 0 || "unknown".equalsIgnoreCase(remote_addr)) {
+			remote_addr = httpServletRequest.getHeader("WL-Proxy-Client-IP");
+		}
+		if (remote_addr ==null || remote_addr.length() == 0 || "unknown".equalsIgnoreCase(remote_addr)) {
+			remote_addr = httpServletRequest.getHeader("HTTP_CLIENT_IP");
+		}
+		if (remote_addr ==null || remote_addr.length() == 0 || "unknown".equalsIgnoreCase(remote_addr)) {
+			remote_addr = httpServletRequest.getHeader("HTTP_X_FORWARDED_FOR");
+		}
+		if (remote_addr ==null || remote_addr.length() == 0 || "unknown".equalsIgnoreCase(remote_addr)) {
+			remote_addr = httpServletRequest.getRemoteAddr();
+		}
+		sRequestMap.putNetwork(key, remote_addr);
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
 		key = "request_uri";
-		sRequestMap.putNetwork(key, httpServletRequest.getRequestURI().replace("/WEB-INF/views", "").replace(".jsp", "").replace(httpServletRequest.getContextPath(), ""));
-		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
-		key = "referer_uri";
-		sRequestMap.putNetwork(key, httpServletRequest.getHeader("referer") == null ? "" : new URI(httpServletRequest.getHeader("referer")).getPath());
+		sRequestMap.putNetwork(key, httpServletRequest.getRequestURI());
 		log.debug(String.format("({}) network.%s: %s", sRequestMap.getUUID(), key, sRequestMap.getNetwork().getString(key)));
 		
 		// parameters
