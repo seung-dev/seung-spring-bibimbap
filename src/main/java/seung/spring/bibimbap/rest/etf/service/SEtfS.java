@@ -1,14 +1,12 @@
 package seung.spring.bibimbap.rest.etf.service;
 
-import seung.java.kimchi.util.SLinkedHashMap;
-import seung.java.kimchi.util.SRequestMap;
+import seung.spring.boot.conf.web.util.SRequest;
+import seung.spring.boot.conf.web.util.SResponse;
 
 public interface SEtfS {
 
-	SLinkedHashMap etfN0100(SRequestMap sRequestMap);
-	
-	SLinkedHashMap etfN0101(SRequestMap sRequestMap);
-	
-	SLinkedHashMap etfN0102(SRequestMap sRequestMap);
-	
+    public SResponse etfN0101(SRequest sRequest);
+    
+    public SResponse etfN0102(SRequest sRequest);
+    
 }

@@ -8,3 +8,9 @@ build
 /.settings/
 /bin/
 /gradle/
+
+# resources
+/src/main/resources/s-swagger.properties
+
+# test
+/src/test/
