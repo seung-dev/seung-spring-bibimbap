@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 import seung.java.kimchi.util.SLinkedHashMap;
 import seung.spring.bibimbap.rest.etf.service.SEtfS;
 import seung.spring.boot.conf.web.util.SRequest;
+import seung.spring.boot.conf.web.util.SResponse;
 import springfox.documentation.annotations.ApiIgnore;
 
 @Api(tags = "ETF API", value = "SEftC")
@@ -29,16 +30,49 @@ public class SEftC {
     @Resource(name="sEtfS")
     private SEtfS sEtfS;
     
+    @ApiOperation(value = "상장기업 고유번호 조회", notes = "")
+    @ApiResponses(value = {
+            @ApiResponse(
+                    code = 200
+                    , response = SResponse.class
+                    , message = ""
+                    , examples = @Example(value = {
+                            @ExampleProperty(
+                                    mediaType = "application/json"
+                                    , value = ""
+                                    )})
+                    )
+    })
+    @RequestMapping(value = {"/rest/etf/d0101"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
+    public String etfD0101(
+            Model model
+            , @ApiIgnore SRequest sRequest
+            , @ApiParam(
+                    value = "요청코드"
+                    , type = "String"
+                    , allowEmptyValue = false
+                    , allowMultiple = false
+                    , example = "81967e1b-82b6-452e-808c-3bf544c3e10c"
+                    ) @RequestParam String request_code
+            ) throws Exception {
+        
+        log.debug("run");
+        
+        model.addAttribute("no-wrap", sEtfS.etfD0101(sRequest));
+        
+        return "jsonView";
+    }
+    
     @ApiOperation(value = "ETF종목 목록 조회", notes = "")
     @ApiResponses(value = {
             @ApiResponse(
                     code = 200
-                    , response = SLinkedHashMap.class
-                    , message = "{\"error_code\":\"0000: 정상, EXXX: 오류\",\"error_message\":\"오류메시지\",\"remote_address\":\"요청IP\",\"request_time\":\"서버수신시간\",\"response_code\":\"디버깅자료\",\"response_message\":\"디버깅자료\",\"exception_message\":\"디버깅자료\",\"etf0000\":[{\"item_code\":\"종목코드\",\"item_name\":\"종목명\"}],\"response_time\":\"서버응답시간\"}"
+                    , response = SResponse.class
+                    , message = ""
                     , examples = @Example(value = {
                             @ExampleProperty(
                                     mediaType = "application/json"
-                                    , value = "{\"error_code\":\"0000: 정상, EXXX: 오류\",\"error_message\":\"오류메시지\",\"remote_address\":\"요청IP\",\"request_time\":\"서버수신시간\",\"response_code\":\"디버깅자료\",\"response_message\":\"디버깅자료\",\"exception_message\":\"디버깅자료\",\"etf0000\":[{\"item_code\":\"종목코드\",\"item_name\":\"종목명\"}],\"response_time\":\"서버응답시간\"}"
+                                    , value = ""
                                     )})
                     )
     })
@@ -64,7 +98,16 @@ public class SEftC {
     
     @ApiOperation(value = "ETF종목 개요 조회", notes = "")
     @ApiResponses(value = {
-            @ApiResponse(code = 200, response = SLinkedHashMap.class, message = "")
+            @ApiResponse(
+                    code = 200
+                    , response = SResponse.class
+                    , message = ""
+                    , examples = @Example(value = {
+                            @ExampleProperty(
+                                    mediaType = "application/json"
+                                    , value = ""
+                                    )})
+                    )
     })
     @RequestMapping(value = {"/rest/etf/n0102"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
     public String etfN0102(

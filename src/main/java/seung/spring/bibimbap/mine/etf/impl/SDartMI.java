@@ -24,7 +24,7 @@ import seung.spring.bibimbap.mine.util.SMiningException;
 import seung.spring.boot.conf.SProperties;
 
 @Slf4j
-@Component("sDartMI")
+@Component("sDartM")
 public class SDartMI implements SDartM {
 
     @Resource(name="sProperties")
@@ -61,7 +61,7 @@ public class SDartMI implements SDartM {
                 byte[] xml = SFile.unzipSingleTextFile(sHttpResponse.getResponseBody());
                 SXml sXml = SSaxParser.parse(xml, false, false, true, "result.list", -1, 10);
                 d0101 = sXml.getItem();
-                sMine.setRequestCode("0000");
+                sMine.setErrorCode("0000");
                 
             } else {
                 
@@ -82,10 +82,13 @@ public class SDartMI implements SDartM {
             
         } catch (SKimchiException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
+            log.error("{}.error", requestCode, e);
         } catch (UnsupportedEncodingException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
+            log.error("{}.error", requestCode, e);
         } catch (SMiningException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
+            log.error("{}.error", requestCode, e);
         } finally {
             sMine.putResult("d0101", d0101);
         }

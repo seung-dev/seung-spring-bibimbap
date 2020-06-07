@@ -89,10 +89,13 @@ public class SNaverMI implements SNaverM {
             
         } catch (SKimchiException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
+            log.error("{}.error", requestCode, e);
         } catch (UnsupportedEncodingException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
+            log.error("{}.error", requestCode, e);
         } catch (SMiningException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
+            log.error("{}.error", requestCode, e);
         } finally {
             sMine.putResult("n0101", n0101);
         }
@@ -217,13 +220,13 @@ public class SNaverMI implements SNaverM {
             
         } catch (SKimchiException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
-            e.printStackTrace();
+            log.error("{}.error", requestCode, e);
         } catch (UnsupportedEncodingException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
-            e.printStackTrace();
+            log.error("{}.error", requestCode, e);
         } catch (SMiningException e) {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
-            e.printStackTrace();
+            log.error("{}.error", requestCode, e);
         } finally {
             n0102.put("cu", cu);
             sMine.putResult("n0102", n0102);
