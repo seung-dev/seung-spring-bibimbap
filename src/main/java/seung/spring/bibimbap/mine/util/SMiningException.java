@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.mining.util;
+package seung.spring.bibimbap.mine.util;
 
 public class SMiningException extends Exception {
 

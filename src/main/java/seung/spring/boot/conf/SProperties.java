@@ -24,6 +24,8 @@ public class SProperties {
     
     private Properties quartz;
     
+    private Properties seung;
+    
     public static SPropertiesBuilder builder() {
         return hiddenBuilder()
                 .environment(new Properties())
@@ -32,6 +34,7 @@ public class SProperties {
                 .jpa(new Properties())
                 .jpaVendor(new Properties())
                 .quartz(new Properties())
+                .seung(new Properties())
                 ;
     }
     

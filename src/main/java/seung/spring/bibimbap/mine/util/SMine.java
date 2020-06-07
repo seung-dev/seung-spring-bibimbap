@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.mining.util;
+package seung.spring.bibimbap.mine.util;
 
 import com.fasterxml.jackson.annotation.JsonInclude.Include;
 import com.fasterxml.jackson.core.JsonProcessingException;

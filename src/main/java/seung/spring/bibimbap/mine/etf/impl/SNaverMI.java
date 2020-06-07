@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.mining.etf;
+package seung.spring.bibimbap.mine.etf.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -12,14 +12,16 @@ import seung.java.kimchi.http.SHttp;
 import seung.java.kimchi.http.SHttpRequest;
 import seung.java.kimchi.http.SHttpResponse;
 import seung.java.kimchi.util.SLinkedHashMap;
-import seung.spring.bibimbap.mining.util.SMine;
-import seung.spring.bibimbap.mining.util.SMiningException;
+import seung.spring.bibimbap.mine.etf.SNaverM;
+import seung.spring.bibimbap.mine.util.SMine;
+import seung.spring.bibimbap.mine.util.SMiningException;
 
 @Slf4j
 @Component("sNaverM")
-public class SNaverM {
+public class SNaverMI implements SNaverM {
 
     @SuppressWarnings("unchecked")
+    @Override
     public SMine n0101(
             String requestCode
             ) {
@@ -99,6 +101,7 @@ public class SNaverM {
     }// end of etfN0101
     
     @SuppressWarnings("unchecked")
+    @Override
     public SMine n0102(
             String requestCode
             , String item_code

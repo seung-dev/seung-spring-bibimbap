@@ -8,8 +8,8 @@ import org.springframework.stereotype.Service;
 import lombok.extern.slf4j.Slf4j;
 import seung.java.kimchi.SDate;
 import seung.java.kimchi.exception.SKimchiException;
-import seung.spring.bibimbap.mining.etf.SNaverM;
-import seung.spring.bibimbap.mining.util.SMine;
+import seung.spring.bibimbap.mine.etf.impl.SNaverMI;
+import seung.spring.bibimbap.mine.util.SMine;
 import seung.spring.boot.conf.web.util.SRequest;
 import seung.spring.boot.conf.web.util.SResponse;
 
@@ -18,7 +18,7 @@ import seung.spring.boot.conf.web.util.SResponse;
 public class SEftSI implements SEtfS {
 
     @Resource(name="sNaverM")
-    private SNaverM sNaverM;
+    private SNaverMI sNaverM;
     
     @Override
     public SResponse etfN0101(SRequest sRequest) {

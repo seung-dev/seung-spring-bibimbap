@@ -19,6 +19,7 @@ import lombok.extern.slf4j.Slf4j;
 
 @PropertySources({
     @PropertySource(value = "classpath:s-swagger.properties")
+    , @PropertySource(value = "classpath:s-mine.properties")
 })
 @ComponentScan(value = {"seung.spring"})
 @Slf4j
@@ -61,6 +62,8 @@ public class SConfBoot {
                     sProperties.getJpaVendor().put(propertyName, propertyValue);
                 } else if(propertyName.startsWith("spring.quartz.properties")) {
                     sProperties.getQuartz().put(propertyName.replace("spring.quartz.properties.", ""), propertyValue);
+                } else if(propertyName.startsWith("seung.min")) {
+                    sProperties.getSeung().put(propertyName, propertyValue);
                 } else {
                     sProperties.getEnvironment().put(propertyName, propertyValue);
                 }
