@@ -46,7 +46,7 @@ public class SDartMI implements SDartM {
         try {
             
             SHttpRequest sHttpRequest = SHttpRequest.builder()
-                    .url("https://opendart.fss.or.kr/api/corpCode.xml")
+                    .url(sProperties.getSeung().getProperty("seung.mine.naver.d0101.url", ""))
                     .data(Pair.of("crtfc_key", sProperties.getSeung().getProperty("seung.mine.dart.api.key", "")))
                     .build()
                     ;
@@ -59,7 +59,7 @@ public class SDartMI implements SDartM {
             if(200 == sHttpResponse.getResponseCode()) {
                 
                 byte[] xml = SFile.unzipSingleTextFile(sHttpResponse.getResponseBody());
-                SXml sXml = SSaxParser.parse(xml, false, false, true, "result.list", -1, 10);
+                SXml sXml = SSaxParser.parse(xml, false, false, true, "result.list", -1, -1);
                 d0101 = sXml.getItem();
                 sMine.setErrorCode("0000");
                 

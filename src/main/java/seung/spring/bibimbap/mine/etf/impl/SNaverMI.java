@@ -3,6 +3,8 @@ package seung.spring.bibimbap.mine.etf.impl;
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
 
+import javax.annotation.Resource;
+
 import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.stereotype.Component;
 
@@ -15,11 +17,15 @@ import seung.java.kimchi.util.SLinkedHashMap;
 import seung.spring.bibimbap.mine.etf.SNaverM;
 import seung.spring.bibimbap.mine.util.SMine;
 import seung.spring.bibimbap.mine.util.SMiningException;
+import seung.spring.boot.conf.SProperties;
 
 @Slf4j
 @Component("sNaverM")
 public class SNaverMI implements SNaverM {
 
+    @Resource(name="sProperties")
+    private SProperties sProperties;
+    
     @SuppressWarnings("unchecked")
     @Override
     public SMine n0101(
@@ -37,7 +43,7 @@ public class SNaverMI implements SNaverM {
         try {
             
             SHttpRequest sHttpRequest = SHttpRequest.builder()
-                    .url("https://finance.naver.com/api/sise/etfItemList.nhn?etfType=0&targetColumn=market_sum&sortOrder=desc&_callback=window.__jindo2_callback._4100")
+                    .url(sProperties.getSeung().getProperty("seung.mine.naver.n0101", ""))
                     .build()
                     ;
             
@@ -123,7 +129,7 @@ public class SNaverMI implements SNaverM {
         try {
             
             SHttpRequest sHttpRequest = SHttpRequest.builder()
-                    .url(String.format("%s%s", "https://navercomp.wisereport.co.kr/v2/ETF/index.aspx?cmp_cd=", item_code))
+                    .url(String.format("%s%s", sProperties.getSeung().getProperty("seung.mine.naver.n0102", ""), item_code))
                     .build()
                     ;
             
