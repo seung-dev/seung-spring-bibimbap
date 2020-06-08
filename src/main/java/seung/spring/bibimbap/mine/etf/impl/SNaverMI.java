@@ -164,11 +164,11 @@ public class SNaverMI implements SNaverM {
                 }
                 
                 miningData = new SLinkedHashMap(responseBody.split("product_summary_data =")[1].split(";")[0]);
-                n0102.put("item_name_kr", miningData.getString("BASE_IDX_NM_KOR", ""));
+                n0102.put("indx_name_kr", miningData.getString("BASE_IDX_NM_KOR", ""));
                 n0102.put("date_set", miningData.getString("FIRST_SETTLE_DT", "").replaceAll("[^0-9]", ""));
                 n0102.put("date_list", miningData.getString("LIST_DT", "").replaceAll("[^0-9]", ""));
                 n0102.put("asst_clss", miningData.getString("FUND_TYP", ""));
-                n0102.put("comm_fee", miningData.getString("TOT_PAY", ""));
+                n0102.put("expn_rate", miningData.getString("TOT_PAY", ""));
                 n0102.put("acct_perd", miningData.getString("FIN_PRD", ""));
                 n0102.put("date_dstb", miningData.getString("DIV_BASE_DT", ""));
                 n0102.put("issr", miningData.getString("ISSUE_NM_KOR", ""));
