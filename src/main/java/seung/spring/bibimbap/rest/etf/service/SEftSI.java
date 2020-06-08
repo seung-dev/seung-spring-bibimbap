@@ -103,9 +103,14 @@ public class SEftSI implements SEtfS {
         
         log.debug("run");
         
-        SResponse sResponse = SResponse.builder().data(sRequest.getData()).build();
-        
         String requestCode = sRequest.getData().getString("request_code", "");
+        
+        SResponse sResponse = SResponse.builder()
+                .request_code(requestCode)
+                .data(sRequest.getData())
+                .build()
+                ;
+        
         try {
             
             log.debug("{}.sRequest: {}", requestCode, sRequest.toJsonString(true));

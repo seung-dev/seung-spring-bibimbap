@@ -43,7 +43,7 @@ public class SNaverMI implements SNaverM {
         try {
             
             SHttpRequest sHttpRequest = SHttpRequest.builder()
-                    .url(sProperties.getSeung().getProperty("seung.mine.naver.n0101", ""))
+                    .url(sProperties.getSeung().getProperty("seung.mine.naver.n0101.url", ""))
                     .build()
                     ;
             
@@ -129,7 +129,7 @@ public class SNaverMI implements SNaverM {
         try {
             
             SHttpRequest sHttpRequest = SHttpRequest.builder()
-                    .url(String.format("%s%s", sProperties.getSeung().getProperty("seung.mine.naver.n0102", ""), item_code))
+                    .url(String.format("%s%s", sProperties.getSeung().getProperty("seung.mine.naver.n0102.url", ""), item_code))
                     .build()
                     ;
             

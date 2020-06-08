@@ -16,7 +16,6 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.Example;
 import io.swagger.annotations.ExampleProperty;
 import lombok.extern.slf4j.Slf4j;
-import seung.java.kimchi.util.SLinkedHashMap;
 import seung.spring.bibimbap.rest.etf.service.SEtfS;
 import seung.spring.boot.conf.web.util.SRequest;
 import seung.spring.boot.conf.web.util.SResponse;
