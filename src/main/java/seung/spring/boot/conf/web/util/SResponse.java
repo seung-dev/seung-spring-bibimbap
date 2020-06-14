@@ -103,4 +103,8 @@ public class SResponse {
         }
     }
     
+    public void success() {
+        this.error_code = "0000";
+    }
+    
 }

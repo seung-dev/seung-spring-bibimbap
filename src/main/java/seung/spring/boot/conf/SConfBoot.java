@@ -62,7 +62,7 @@ public class SConfBoot {
                     sProperties.getJpaVendor().put(propertyName, propertyValue);
                 } else if(propertyName.startsWith("spring.quartz.properties")) {
                     sProperties.getQuartz().put(propertyName.replace("spring.quartz.properties.", ""), propertyValue);
-                } else if(propertyName.startsWith("seung.min")) {
+                } else if(propertyName.startsWith("seung.mine")) {
                     sProperties.getSeung().put(propertyName, propertyValue);
                 } else {
                     sProperties.getEnvironment().put(propertyName, propertyValue);

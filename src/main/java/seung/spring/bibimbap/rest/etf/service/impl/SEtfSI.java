@@ -17,7 +17,7 @@ import seung.spring.boot.conf.web.util.SResponse;
 
 @Slf4j
 @Service("sEtfS")
-public class SEftSI implements SEtfS {
+public class SEtfSI implements SEtfS {
 
     @Resource(name="sDartM")
     private SDartMI sDartM;

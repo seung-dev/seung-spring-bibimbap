@@ -24,7 +24,7 @@ import springfox.documentation.annotations.ApiIgnore;
 @Api(tags = "ETF API", value = "SEftC")
 @Slf4j
 @Controller
-public class SEftC {
+public class SEtfC {
 
     @Resource(name="sEtfS")
     private SEtfS sEtfS;
