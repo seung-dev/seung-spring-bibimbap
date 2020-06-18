@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.rest.etf.service;
+package seung.spring.bibimbap.rest.fin.service;
 
 import seung.spring.boot.conf.web.util.SRequest;
 import seung.spring.boot.conf.web.util.SResponse;

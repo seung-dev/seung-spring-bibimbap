@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.mine.etf;
+package seung.spring.bibimbap.mine.fin;
 
 import seung.spring.bibimbap.mine.util.SMine;
 

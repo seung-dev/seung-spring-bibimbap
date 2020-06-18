@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.rest.etf;
+package seung.spring.bibimbap.rest.fin;
 
 import javax.annotation.Resource;
 
@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.Example;
 import io.swagger.annotations.ExampleProperty;
 import lombok.extern.slf4j.Slf4j;
-import seung.spring.bibimbap.rest.etf.service.SEtfS;
+import seung.spring.bibimbap.rest.fin.service.SEtfS;
 import seung.spring.boot.conf.web.util.SRequest;
 import seung.spring.boot.conf.web.util.SResponse;
 import springfox.documentation.annotations.ApiIgnore;

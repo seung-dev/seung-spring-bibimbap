@@ -1,4 +1,4 @@
-package seung.spring.bibimbap.mine.etf.impl;
+package seung.spring.bibimbap.mine.fin.impl;
 
 import java.io.UnsupportedEncodingException;
 import java.util.ArrayList;
@@ -14,7 +14,7 @@ import seung.java.kimchi.http.SHttp;
 import seung.java.kimchi.http.SHttpRequest;
 import seung.java.kimchi.http.SHttpResponse;
 import seung.java.kimchi.util.SLinkedHashMap;
-import seung.spring.bibimbap.mine.etf.SNaverM;
+import seung.spring.bibimbap.mine.fin.SNaverM;
 import seung.spring.bibimbap.mine.util.SMine;
 import seung.spring.bibimbap.mine.util.SMiningException;
 import seung.spring.boot.conf.SProperties;
