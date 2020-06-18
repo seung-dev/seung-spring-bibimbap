@@ -16,3 +16,6 @@ build
 
 # test
 /src/test/
+
+# log
+/logs/

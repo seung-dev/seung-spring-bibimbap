@@ -164,7 +164,7 @@ public class SNaverMI implements SNaverM {
                 }
                 
                 miningData = new SLinkedHashMap(responseBody.split("product_summary_data =")[1].split(";")[0]);
-                n0102.put("indx_name_kr", miningData.getString("BASE_IDX_NM_KOR", ""));
+                n0102.put("indx_name", miningData.getString("BASE_IDX_NM_KOR", ""));
                 n0102.put("date_set", miningData.getString("FIRST_SETTLE_DT", "").replaceAll("[^0-9]", ""));
                 n0102.put("date_list", miningData.getString("LIST_DT", "").replaceAll("[^0-9]", ""));
                 n0102.put("asst_clss", miningData.getString("FUND_TYP", ""));
@@ -195,7 +195,7 @@ public class SNaverMI implements SNaverM {
                     throw new SMiningException("Failed to find CU_data field.");
                 }
                 
-                miningData = new SLinkedHashMap(responseBody.split("CU_data =")[1].split(";")[0]);
+                miningData = new SLinkedHashMap(responseBody.split("CU_data =")[1].split("var")[0].trim().replace("};", "}"));
                 
                 SLinkedHashMap cu_map = null;
                 for(SLinkedHashMap item : miningData.getListSLinkedHashMap("grid_data")) {
@@ -234,6 +234,9 @@ public class SNaverMI implements SNaverM {
             sMine.setErrorMessage(ExceptionUtils.getStackTrace(e));
             log.error("{}.error", requestCode, e);
         } finally {
+            if(!"0000".equals(sMine.getErrorCode())) {
+                log.error("n0102.{}.item_code {}", requestCode, item_code);
+            }
             n0102.put("cu", cu);
             sMine.putResult("n0102", n0102);
         }
