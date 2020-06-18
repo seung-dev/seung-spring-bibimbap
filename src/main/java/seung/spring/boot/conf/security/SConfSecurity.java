@@ -33,10 +33,8 @@ public class SConfSecurity extends WebSecurityConfigurerAdapter {
         
         log.debug("run");
         
-        String       systemIp  = environment.getProperty("config.system.ip", "0:0:0:0:0:0:0:1,127.0.0.1");
+        String       systemIp  = environment.getProperty("seung.security.allow.ip", "127.0.0.1");
         StringBuffer systemIps = new StringBuffer();
-        String       serviceIp = environment.getProperty("config.service.ip", "");
-        StringBuffer serviceIps = new StringBuffer();
         
         if(!"".equals(systemIp)) {
             for(String ip : systemIp.split(",")) {
@@ -45,16 +43,6 @@ public class SConfSecurity extends WebSecurityConfigurerAdapter {
                 }
                 log.info("config.system.ip=", ip);
                 systemIps.append(String.format("hasIpAddress('%s')", ip.trim()));
-            }
-        }
-        
-        if(!"".equals(serviceIp)) {
-            for(String ip : serviceIp.split(",")) {
-                if(serviceIps.length() > 0) {
-                    serviceIps.append(" or ");
-                }
-                log.info("config.service.ip=", ip);
-                serviceIps.append(String.format("hasIpAddress('%s')", ip.trim()));
             }
         }
         

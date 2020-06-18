@@ -11,13 +11,13 @@ import seung.java.kimchi.exception.SKimchiException;
 import seung.spring.bibimbap.mine.fin.impl.SDartMI;
 import seung.spring.bibimbap.mine.fin.impl.SNaverMI;
 import seung.spring.bibimbap.mine.util.SMine;
-import seung.spring.bibimbap.rest.fin.service.SEtfS;
+import seung.spring.bibimbap.rest.fin.service.SFinS;
 import seung.spring.boot.conf.web.util.SRequest;
 import seung.spring.boot.conf.web.util.SResponse;
 
 @Slf4j
-@Service("sEtfS")
-public class SEtfSI implements SEtfS {
+@Service("sFinS")
+public class SFinSI implements SFinS {
 
     @Resource(name="sDartM")
     private SDartMI sDartM;

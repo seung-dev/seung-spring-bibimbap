@@ -16,7 +16,7 @@ import io.swagger.annotations.ApiResponses;
 import io.swagger.annotations.Example;
 import io.swagger.annotations.ExampleProperty;
 import lombok.extern.slf4j.Slf4j;
-import seung.spring.bibimbap.rest.fin.service.SEtfS;
+import seung.spring.bibimbap.rest.fin.service.SFinS;
 import seung.spring.boot.conf.web.util.SRequest;
 import seung.spring.boot.conf.web.util.SResponse;
 import springfox.documentation.annotations.ApiIgnore;
@@ -24,10 +24,10 @@ import springfox.documentation.annotations.ApiIgnore;
 @Api(tags = "ETF API", value = "SEftC")
 @Slf4j
 @Controller
-public class SEtfC {
+public class SFinC {
 
-    @Resource(name="sEtfS")
-    private SEtfS sEtfS;
+    @Resource(name="sFinS")
+    private SFinS sFinS;
     
     @ApiOperation(value = "상장기업 고유번호 조회", notes = "")
     @ApiResponses(value = {
@@ -42,7 +42,7 @@ public class SEtfC {
                                     )})
                     )
     })
-    @RequestMapping(value = {"/rest/etf/d0101"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = {"/rest/fin/d0101"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
     public String etfD0101(
             Model model
             , @ApiIgnore SRequest sRequest
@@ -57,7 +57,7 @@ public class SEtfC {
         
         log.debug("run");
         
-        model.addAttribute("no-wrap", sEtfS.etfD0101(sRequest));
+        model.addAttribute("no-wrap", sFinS.etfD0101(sRequest));
         
         return "jsonView";
     }
@@ -75,7 +75,7 @@ public class SEtfC {
                                     )})
                     )
     })
-    @RequestMapping(value = {"/rest/etf/n0101"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = {"/rest/fin/n0101"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
     public String etfN0101(
             Model model
             , @ApiIgnore SRequest sRequest
@@ -90,7 +90,7 @@ public class SEtfC {
         
         log.debug("run");
         
-        model.addAttribute("no-wrap", sEtfS.etfN0101(sRequest));
+        model.addAttribute("no-wrap", sFinS.etfN0101(sRequest));
         
         return "jsonView";
     }
@@ -108,7 +108,7 @@ public class SEtfC {
                                     )})
                     )
     })
-    @RequestMapping(value = {"/rest/etf/n0102"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
+    @RequestMapping(value = {"/rest/fin/n0102"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
     public String etfN0102(
             Model model
             , @ApiIgnore SRequest sRequest
@@ -130,7 +130,7 @@ public class SEtfC {
         
         log.debug("run");
         
-        model.addAttribute("no-wrap", sEtfS.etfN0102(sRequest));
+        model.addAttribute("no-wrap", sFinS.etfN0102(sRequest));
         
         return "jsonView";
     }
