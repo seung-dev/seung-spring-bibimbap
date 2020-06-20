@@ -72,6 +72,7 @@ public class SNaverMI implements SNaverM {
                     format = new SLinkedHashMap();
                     format.put("item_code", item.getString("itemcode", ""));
                     format.put("item_name", item.getString("itemname", ""));
+                    format.put("etf_type", item.getString("etfTabCode", ""));
                     n0101.add(format);
                 }
                 sMine.setErrorCode("0000");
