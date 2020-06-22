@@ -47,7 +47,7 @@ public class SDartMI implements SDartM {
             
             SHttpRequest sHttpRequest = SHttpRequest.builder()
                     .url(sProperties.getSeung().getProperty("seung.mine.naver.d0101.url", ""))
-                    .dataMap(Pair.of("crtfc_key", sProperties.getSeung().getProperty("seung.mine.dart.api.key.value", "")))
+//                    .dataMap(Pair.of("crtfc_key", sProperties.getSeung().getProperty("seung.mine.dart.api.key.value", "")))
                     .build()
                     ;
             
