@@ -20,6 +20,7 @@ bootJar {
 	//archiveVersion
 	//archiveExtension
 	archiveFileName = "${archiveBaseName.get()}.${archiveExtension.get()}"
+	destinationDirectory = file('e:/dev/build')
 }
 
 repositories {
