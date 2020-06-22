@@ -4,6 +4,6 @@ import seung.spring.bibimbap.mine.util.SMine;
 
 public interface SDartM {
 
-    SMine d0101(String requestCode);
-    
+//	SMine d0101(String requestCode);
+//	
 }

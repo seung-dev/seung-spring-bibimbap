@@ -5,10 +5,10 @@ import seung.spring.boot.conf.web.util.SResponse;
 
 public interface SFinS {
 
-    public SResponse etfD0101(SRequest sRequest);
-    
-    public SResponse etfN0101(SRequest sRequest);
-    
-    public SResponse etfN0102(SRequest sRequest);
-    
+//	public SResponse finD0101(SRequest sRequest);
+//	
+	public SResponse finN0101(SRequest sRequest);
+	
+	public SResponse finN0102(SRequest sRequest);
+	
 }

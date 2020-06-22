@@ -10,4 +10,4 @@
 rootProject.name = 'seung-spring-bibimbap'
 
 include 'seung-java-kimchi'
-project(':seung-java-kimchi').projectDir = new File("e:/dev/git/seung-java-kimchi")
+project(':seung-java-kimchi').projectDir = new File("e:/dev/github/seung-java-kimchi")

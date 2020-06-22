@@ -12,30 +12,30 @@ import lombok.Getter;
 //@Setter
 public class SProperties {
 
-    private Properties environment;
-    
-    private Properties swagger;
-    
-    private List<Properties> datasource;
-    
-    private Properties jpa;
-    
-    private Properties jpaVendor;
-    
-    private Properties quartz;
-    
-    private Properties seung;
-    
-    public static SPropertiesBuilder builder() {
-        return hiddenBuilder()
-                .environment(new Properties())
-                .swagger(new Properties())
-                .datasource(new ArrayList<>())
-                .jpa(new Properties())
-                .jpaVendor(new Properties())
-                .quartz(new Properties())
-                .seung(new Properties())
-                ;
-    }
-    
+	private Properties environment;
+	
+	private Properties swagger;
+	
+	private List<Properties> datasource;
+	
+	private Properties jpa;
+	
+	private Properties jpaVendor;
+	
+	private Properties quartz;
+	
+	private Properties seung;
+	
+	public static SPropertiesBuilder builder() {
+		return hiddenBuilder()
+				.environment(new Properties())
+				.swagger(new Properties())
+				.datasource(new ArrayList<>())
+				.jpa(new Properties())
+				.jpaVendor(new Properties())
+				.quartz(new Properties())
+				.seung(new Properties())
+				;
+	}
+	
 }
