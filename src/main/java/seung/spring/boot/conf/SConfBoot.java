@@ -38,11 +38,11 @@ public class SConfBoot {
 			properties.put("host.name", InetAddress.getLocalHost().getHostName());
 			
 			Enumeration<String> propertyNames = (Enumeration<String>) properties.propertyNames();
-			String			  propertyName  = "";
-			String			  propertyValue = "";
-			int				 propertyIndex = -1;
+			String propertyName = "";
+			String propertyValue = "";
+			int propertyIndex = -1;
 			while(propertyNames.hasMoreElements()) {
-				propertyName  = propertyNames.nextElement();
+				propertyName = propertyNames.nextElement();
 				propertyValue = properties.getProperty(propertyName, "");
 				if(propertyName.startsWith("seung.swagger")) {
 					sProperties.getSwagger().put(propertyName, propertyValue);

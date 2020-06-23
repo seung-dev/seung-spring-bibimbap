@@ -35,9 +35,9 @@ public class SHandlerMethodArgumentResolver implements HandlerMethodArgumentReso
 		
 		SRequest.SRequestBuilder sRequestBuilder = SRequest.builder();
 		
-		Object   element = null;
-		String   key	 = null;
-		String[] value   = null;
+		Object element = null;
+		String key = null;
+		String[] value = null;
 		
 		HttpServletRequest httpServletRequest = (HttpServletRequest) nativeWebRequest.getNativeRequest();
 		

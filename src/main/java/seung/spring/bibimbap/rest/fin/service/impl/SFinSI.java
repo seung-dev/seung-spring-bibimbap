@@ -2,13 +2,11 @@ package seung.spring.bibimbap.rest.fin.service.impl;
 
 import javax.annotation.Resource;
 
-import org.apache.commons.lang3.exception.ExceptionUtils;
 import org.springframework.stereotype.Service;
 
 import lombok.extern.slf4j.Slf4j;
 import seung.java.kimchi.SDate;
 import seung.java.kimchi.util.SCode;
-import seung.java.kimchi.util.SKimchiException;
 import seung.spring.bibimbap.mine.fin.impl.SDartMI;
 import seung.spring.bibimbap.mine.fin.impl.SNaverMI;
 import seung.spring.bibimbap.mine.util.SMine;
@@ -101,7 +99,7 @@ public class SFinSI implements SFinS {
 		log.info(
 				"{} {}"
 				, requestCode
-				, SCode.ERROR
+				, SCode.END
 				);
 		return sResponse;
 	}
@@ -152,7 +150,7 @@ public class SFinSI implements SFinS {
 		log.info(
 				"{} {}"
 				, requestCode
-				, SCode.ERROR
+				, SCode.END
 				);
 		return sResponse;
 	}
