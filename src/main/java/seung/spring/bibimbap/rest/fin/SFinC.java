@@ -57,4 +57,17 @@ public class SFinC {
 		return "jsonView";
 	}
 	
+	@RequestMapping(value = {"/rest/fin/n0104"}, method = {RequestMethod.POST}, produces = "application/json;charset=UTF-8")
+	public String finN0104(
+			Model model
+			, SRequest sRequest
+			) throws Exception {
+		
+		log.debug("run");
+		
+		model.addAttribute("no-wrap", sFinS.finN0104(sRequest));
+		
+		return "jsonView";
+	}
+	
 }

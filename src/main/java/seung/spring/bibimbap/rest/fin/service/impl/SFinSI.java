@@ -155,4 +155,55 @@ public class SFinSI implements SFinS {
 		return sResponse;
 	}
 	
+	@Override
+	public SResponse finN0104(SRequest sRequest) {
+		
+		String requestCode = sRequest.getData().getString("request_code", "");
+		log.info(
+				"{} {}"
+				, requestCode
+				, SCode.START
+				);
+		log.info(
+				"{}.item_code={}"
+				, requestCode
+				, sRequest.getData().getString("item_code", "")
+				);
+		
+		SResponse sResponse = SResponse.builder()
+				.request_code(requestCode)
+				.data(sRequest.getData())
+				.build()
+				;
+		
+		
+		SMine sMine = sNaverM.n0104(
+				requestCode
+				, sRequest.getData().getString("item_code", "")
+				);
+		
+		sResponse.setError_code(sMine.getErrorCode());
+		if(SCode.SUCCESS.equals(sMine.getErrorCode())) {
+			sResponse.setResult(sMine.getResult());
+			sResponse.success();
+		} else {
+			sResponse.setError_code(sMine.getErrorCode());
+			sResponse.setError_message(sMine.getErrorMessage());
+		}
+		
+		sResponse.setResponse_time(SDate.getDateString());
+		
+		log.info(
+				"{}.error_code={}"
+				, requestCode
+				, sResponse.getError_code()
+				);
+		log.info(
+				"{} {}"
+				, requestCode
+				, SCode.END
+				);
+		return sResponse;
+	}
+	
 }

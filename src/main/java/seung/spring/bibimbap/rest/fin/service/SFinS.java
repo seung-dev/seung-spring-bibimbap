@@ -11,4 +11,6 @@ public interface SFinS {
 	
 	public SResponse finN0102(SRequest sRequest);
 	
+	public SResponse finN0104(SRequest sRequest);
+	
 }
