@@ -54,7 +54,7 @@ public class SNaverMI implements SNaverM {
 					);
 			
 			HttpResponse<byte[]> httpResponse = Unirest
-					.post(sProperties.getSeung().getProperty("seung.mine.naver.n0101.url", ""))
+					.post("https://navercomp.wisereport.co.kr/v2/ETF/index.aspx")
 					.header("Accept", "text/html, application/xhtml+xml, image/jxr, */*")
 					.header("Accept-Language", "ko-KR")
 					.header("Host", "finance.naver.com")
@@ -437,6 +437,18 @@ public class SNaverMI implements SNaverM {
 						item_oi = "";
 					}
 					n0104.get(i - 1).put("item_oi", item_oi.replaceAll("[^0-9-]", ""));
+				}
+				
+				String[] item_nis = response.split("당기순이익\\(지배\\)")[1].split("<td");
+				String item_ni = "";
+				for(int i = 1; i <= n0104.size(); i++) {
+					item_ni = item_nis[i];
+					if(item_ni.contains("<span")) {
+						item_ni = item_ni.split("<span")[1].split(">")[1].split("<")[0];
+					} else {
+						item_ni = "";
+					}
+					n0104.get(i - 1).put("item_ni", item_ni.replaceAll("[^0-9-]", ""));
 				}
 				
 				String[] item_tas = response.split("자산총계")[1].split("<td");
